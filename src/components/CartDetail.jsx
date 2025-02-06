@@ -28,15 +28,14 @@ const CartDetail = () => {
         })
     }
 
+    // au return si c'est les memes produits affichier la card du meme produit avec la quantitée 
+    // dans le coin de la card
+
     return (
         <>
             {cartContext.state.products.length > 0 &&
-                <section id="cart-details">
-                    <h2>Détails du panier
-                        <span className="badge total">
-                            {total > 100 ? total - reduction : total} € dont {reduction} € de réduction
-                        </span>
-                    </h2>
+                <section>
+                    <h1>Detail du panier</h1>
                     <div className="products">
                         {
                             cartContext.state.products.map((product, index) => {
@@ -51,7 +50,7 @@ const CartDetail = () => {
                                                 {product.prix} €
                                             </span>
                                         </div>
-                                        <button className="btn-add-cart" onClick={() => handleRemoveToCart(index)}>
+                                        <button className="btn-remove-cart" onClick={() => handleRemoveToCart(index)}>
                                             Retirer
                                         </button>
                                     </div>
@@ -59,10 +58,18 @@ const CartDetail = () => {
                             })
                         }
                     </div>
+                    <div className="total">
+                        <span>
+                            Total : {total} €
+                        </span>
+                        <span>
+                            Reduction : {reduction} €
+                        </span>
+                    </div>
                 </section>
             }
         </>
-    );
+    )
 }
 
 export default CartDetail
