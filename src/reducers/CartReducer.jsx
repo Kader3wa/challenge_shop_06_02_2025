@@ -1,5 +1,3 @@
-import products from "../data/products";
-
 const CartReducer = (state, action) => {
 
     switch (action.type) {
