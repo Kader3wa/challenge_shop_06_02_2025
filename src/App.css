@@ -1,6 +1,65 @@
 #root {
   max-width: 1280px;
-  margin: 0 auto;
+  margin: auto;
   padding: 2rem;
+  --primary: rgb(55, 143, 186);
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header .cart img {
+  max-width: 40px;
+}
+
+.badge {
+  padding: 0.3rem;
+  font-weight: bold;
+  background-color: var(--primary);
+  color: white;
+  border-radius: 30px;
+}
+
+section {
+  margin: 100px 0;
+}
+
+section h1 {
   text-align: center;
+}
+
+.products {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 30px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  padding: 1rem;
+  border: 1px solid #f3f2f2;
+  background: #fbfbfb;
+}
+
+.card-img {
+  object-fit: cover;
+}
+
+.card-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.btn-add-cart {
+  margin: 20px 0;
 }
