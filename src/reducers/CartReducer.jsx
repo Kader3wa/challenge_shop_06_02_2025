@@ -14,13 +14,6 @@ const CartReducer = (state, action) => {
             }
         }
 
-        case ("TOTAL"): {
-            return {
-                ...state,
-                total: state.products.map((product) => product.prix++)
-            }
-        }
-
         default: return state;
     }
 

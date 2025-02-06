@@ -19,9 +19,9 @@ const Products = () => {
                 <h1>Liste des produits</h1>
                 <div className="products">
                     {
-                        products.map((product) => {
+                        products.map((product, index) => {
                             return (
-                                <div className="card" key={product.id}>
+                                <div className="card" key={index}>
                                     <img src={product.image} alt={product.nom} className="card-img" />
                                     <div className="card-content">
                                         <span>

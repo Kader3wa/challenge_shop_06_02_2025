@@ -1,12 +1,25 @@
-import { useContext } from "react"
+import { useContext, useEffect, useState } from "react"
 import { CartContext } from "../contexts/CartContext"
 
 const CartDetail = () => {
     const cartContext = useContext(CartContext);
+    const [total, setTotal] = useState(0);
+    const [reduction, setReduction] = useState(0);
 
-    const totalCart = () => {
-        return cartContext.state.products.reduce((acc, product) => acc + product.prix, 0) + " €";
-    }
+    useEffect(() => {
+        let total = 0;
+        let reduction = 0;
+        cartContext.state.products.forEach((product) => {
+            total += product.prix;
+            if (total > 100) {
+                reduction = total * 0.1;
+                setReduction(reduction);
+            } else {
+                setReduction(0);
+            }
+        })
+        setTotal(total);
+    }, [cartContext.state.products, total, reduction])
 
     const handleRemoveToCart = (product) => {
         cartContext.dispatch({
@@ -21,14 +34,14 @@ const CartDetail = () => {
                 <section id="cart-details">
                     <h2>Détails du panier
                         <span className="badge total">
-                            {totalCart()}
+                            {total > 100 ? total - reduction : total} € dont {reduction} € de réduction
                         </span>
                     </h2>
                     <div className="products">
                         {
-                            cartContext.state.products.map((product) => {
+                            cartContext.state.products.map((product, index) => {
                                 return (
-                                    <div className="card" key={product.id}>
+                                    <div className="card" key={index}>
                                         <img src={product.image} alt={product.nom} className="card-img" />
                                         <div className="card-content">
                                             <span>
