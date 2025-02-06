@@ -21,10 +21,10 @@ const CartDetail = () => {
         setTotal(total);
     }, [cartContext.state.products, total, reduction])
 
-    const handleRemoveToCart = (product) => {
+    const handleRemoveToCart = (index) => {
         cartContext.dispatch({
             type: "REMOVE_PRODUCT",
-            payload: product
+            payload: index
         })
     }
 
@@ -51,7 +51,7 @@ const CartDetail = () => {
                                                 {product.prix} €
                                             </span>
                                         </div>
-                                        <button className="btn-add-cart" onClick={() => handleRemoveToCart(product)}>
+                                        <button className="btn-add-cart" onClick={() => handleRemoveToCart(index)}>
                                             Retirer
                                         </button>
                                     </div>
