@@ -28,7 +28,7 @@ section {
   margin: 100px 0;
 }
 
-section h1 {
+section {
   text-align: center;
 }
 
@@ -62,4 +62,8 @@ section h1 {
 
 .btn-add-cart {
   margin: 20px 0;
+}
+
+.total {
+  margin: 0 10px;
 }
