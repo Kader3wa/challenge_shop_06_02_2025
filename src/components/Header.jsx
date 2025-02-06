@@ -13,7 +13,7 @@ const Header = () => {
                     <h1>Shop</h1>
                 </div>
                 <div className="cart">
-                    <a href="#cart-details">
+                    <a href="#cart">
                         <img src={CartIcon} alt="Shop" />
                         <span className="badge cart-size">
                             {cartContext.state.products.length}

@@ -34,7 +34,7 @@ const CartDetail = () => {
     return (
         <>
             {cartContext.state.products.length > 0 &&
-                <section>
+                <section id="cart">
                     <h1>Detail du panier</h1>
                     <div className="products">
                         {
