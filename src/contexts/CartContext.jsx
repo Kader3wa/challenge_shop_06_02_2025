@@ -5,9 +5,7 @@ import CartReducer from "../reducers/CartReducer";
 export const CartContext = createContext(null);
 
 export const initialCart = {
-    products: [],
-    totalPrice: 0,
-    reduction: 0
+    products: []
 }
 
 const CartProvider = ({ children }) => {
